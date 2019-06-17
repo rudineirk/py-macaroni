@@ -39,7 +39,11 @@ def error(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         if not self._magic:
-            return func(self, *args, **kwargs)
+            resp = func(self, *args, **kwargs)
+            if isinstance(resp, Error):
+                self.error = resp.data
+                return self.error
+
         if not self.error:
             return self
 
@@ -63,7 +67,10 @@ def exception(exc_cls):
         @wraps(func)
         def wrapper(self, *args, **kwargs):
             if not self._magic:
-                return func(self, *args, **kwargs)
+                resp = func(self, *args, **kwargs)
+                if isinstance(resp, Error):
+                    self.error = resp.data
+                    return self.error
             if not self.exception:
                 return self
             if not isinstance(self.exception, exc_cls):
