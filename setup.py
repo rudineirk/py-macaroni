@@ -10,7 +10,7 @@ with open(path.join(basedir, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="macaroni",
-    version="0.0.1",
+    version="0.0.3",
     description="A lib to help you avoid spaghetti code",
     long_description=long_description,
     long_description_content_type="text/markdown",

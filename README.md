@@ -56,6 +56,7 @@ def create_item(data):
         .log_operation()
         .handle_error()
         .handle_duplicate_item()
+        .unwrap()
     )
     return result
 
@@ -68,6 +69,7 @@ def update_item(data):
         .update_item()
         .log_operation()
         .handle_error()
+        .unwrap()
     )
     return result
 ```
