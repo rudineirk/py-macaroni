@@ -121,9 +121,9 @@ Error handling:
 ```python
 calc = Calculator(10)
 result = calc \
-    .increment(2) \ # this is executed
-    .divide(-3) \ # this causes an error
-    .increment() \ # this is not executed
+    .increment(2) # this is executed \
+    .divide(-3) # this causes an error \
+    .increment() # this is not executed \
     .unwrap() # returns the error
 
 assert bool(calc.error) == True
@@ -136,9 +136,9 @@ Exception handling:
 calc = Calculator(10)
 try:
     calc \
-        .increment(2) \ # this is executed
-        .invalid() \ # this causes an exception
-        .increment() \ # this is not executed
+        .increment(2) # this is executed \
+        .invalid() # this causes an exception \
+        .increment() # this is not executed \
         .unwrap() # the exception ValueError is raised on unwrap
 except ValueError:
     pass
